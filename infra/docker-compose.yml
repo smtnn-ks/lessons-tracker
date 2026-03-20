@@ -1,0 +1,5 @@
+name: lessons-tracker
+
+services:
+  db:
+    image: postgres:16
