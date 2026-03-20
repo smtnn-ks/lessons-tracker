@@ -1,0 +1,4 @@
+tailwind/tailwindcss
+internal/app/static/css/style.css
+*_templ.go
+/next-htmx-example

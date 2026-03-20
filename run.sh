@@ -6,8 +6,13 @@ migrate() {
 }
 
 docker_compose() {
-    echo ${@:2}
     docker compose -f infra/docker-compose.yml -f infra/docker-compose.local.yml ${@:2}
+}
+
+install_tailwind() {
+    curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-macos-arm64
+    chmod +x tailwindcss-macos-arm64
+    mv tailwindcss-macos-arm64 tailwind/tailwindcss
 }
 
 ########################################

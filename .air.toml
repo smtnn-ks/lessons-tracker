@@ -1,0 +1,58 @@
+#:schema https://json.schemastore.org/any.json
+
+env_files = [".env"]
+root = "."
+
+[build]
+args_bin = []
+bin = "./next-htmx-example"
+cmd = """
+    bash -c './tailwind/tailwindcss -c ./tailwind/tailwind.config.js -i ./tailwind/input.css -o ./internal/app/static/css/style.css' &
+    go tool templ generate &
+    wait && 
+    go build -o lessons-tracker ./cmd/lessons-tracker
+"""
+delay = 100
+exclude_regex = ["_test.go", "_templ.go"]
+exclude_unchanged = false
+follow_symlink = false
+full_bin = ""
+ignore_dangerous_root_dir = false
+include_dir = []
+include_ext = ["go", "templ"]
+include_file = []
+kill_delay = "0s"
+log = "build-errors.log"
+poll = false
+poll_interval = 0
+post_cmd = []
+pre_cmd = []
+rerun = false
+rerun_delay = 500
+send_interrupt = false
+stop_on_error = false
+
+[color]
+app = ""
+build = "yellow"
+main = "magenta"
+runner = "green"
+watcher = "cyan"
+
+[log]
+main_only = false
+silent = false
+time = false
+
+[misc]
+clean_on_exit = false
+
+[proxy]
+app_port = 7500
+app_start_timeout = 0
+enabled = true
+proxy_port = 8000
+
+[screen]
+clear_on_rebuild = true
+keep_scroll = true
